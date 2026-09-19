@@ -1,0 +1,79 @@
+{
+  "protocol": "GOVERNOR-MCT",
+  "schemaVersion": "1.1.0",
+  "packetVersion": "1.2.1",
+  "packetId": "governor-master-context",
+  "classification": "inactive-book-derived-operational-kernel",
+  "compiledOn": "2026-08-31",
+  "supersedes": {
+    "packetVersion": "1.2.0",
+    "packetSha256": "e3580cb31c8ad1cbcf425c9e58bc80bab332723ea7f17f5751f135a214503956",
+    "manifestSha256": "712fb8cf6a40a4e024a13c002aef021adbc7a8c69a85dae49565aea886274e25"
+  },
+  "sources": [
+    {
+      "id": "manuscript",
+      "role": "primary-portable-context",
+      "edition": "Master Manuscript v9 — Hearing & Loop Closure Pass",
+      "importedAt": "2026-09-01T00:06:20.423Z",
+      "rawSha256": "e83a0ab7ab35e81aac588468df9a88cf9be04319a5a33397f547b9df57f69c58",
+      "provenanceStatus": "tagged",
+      "exactAttributedCoveragePercent": 0.144,
+      "nearMatchedCoveragePercent": 0.195
+    },
+    {
+      "id": "apparatus-review",
+      "role": "proposed-evaluation-architecture",
+      "sourceMessageSha256": "66fb4ac2c67880a4c408e9da2e851ed33cbf8eae935e19e44fb6273b1d883f65",
+      "sourceMessageNormalization": "UTF-8 with no terminal newline",
+      "repositoryCopySha256": "e7e83e92b07d6dc0f133c88492ec480ff7ac9e33835d6064c6052b95c7b1d98c",
+      "repositoryCopyNormalization": "UTF-8 with LF line endings and one terminal newline"
+    }
+  ],
+  "artifacts": {
+    "masterKernel": {
+      "mediaType": "text/markdown; charset=utf-8",
+      "filename": "governor-master-context-v1.2.1.md",
+      "latestAlias": "governor-master-context.md",
+      "rawSha256": "aac0af6363c7e9fabb4f67e6c38d006b6383ca3afdce0b4d01197de9f9f1deb4",
+      "bytes": 19500,
+      "words": 2693,
+      "approximateTokens": 4861
+    },
+    "compactKernel": {
+      "status": "derived short-form task kernel; not the master kernel used by GOVERNOR-BTE/1.1.1",
+      "mediaType": "text/markdown; charset=utf-8",
+      "filename": "governor-compact-context-v1.2.1.md",
+      "latestAlias": "governor-compact-context.md",
+      "rawSha256": "f56029bf2a8c6923f6de5c714439b250e9bc4339b7cb4a5a5e8a6db62676f266",
+      "bytes": 4473,
+      "words": 637,
+      "approximateTokens": 1114
+    },
+    "primaryBookContext": {
+      "status": "deterministic prose export; raw manuscript JSON remains exact source",
+      "exportProtocol": "GOVERNOR-BOOK-CONTEXT/1.0.1",
+      "mediaType": "text/markdown; charset=utf-8",
+      "filename": "the-governor-book-context-v9-export-1.0.1.md",
+      "rawSha256": "74f6980c052883549fc5b7d2bc0e76ceff8c0db379f574bb476bdafd9c0fa3c9",
+      "bytes": 232053,
+      "words": 37171,
+      "manuscriptWords": 36740
+    },
+    "evaluationProtocol": {
+      "status": "proposed protocol; not a result",
+      "mediaType": "text/markdown; charset=utf-8",
+      "filename": "governor-bounded-transfer-evaluation-v1.1.1.md",
+      "rawSha256": "999d3af46e8501753380d5b09a4dab5ef4fe46066bf30d8431e7df1910af838f",
+      "bytes": 6997,
+      "words": 950
+    }
+  },
+  "interpretation": {
+    "primaryContext": "The book is primary; the packet is a derived operational kernel.",
+    "authority": "none beyond governing rules and the current authorized task",
+    "activation": "inactive unless explicitly adopted for a bounded current task",
+    "evaluation": "bounded evidence, not proof, identity, or general equivalence",
+    "correction": "independent evidence may contradict factual or inferential claims made or summarized by the manuscript, packet, compiler, or comparator; each source remains authoritative only for its own recorded content"
+  }
+}

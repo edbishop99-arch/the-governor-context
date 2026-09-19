@@ -1,0 +1,10 @@
+{
+  "protocol": "GOVERNOR-MCT",
+  "packetVersion": "1.2.1",
+  "manifestSha256": "22be10267e8d49cb399df0bacc17b796b130322ce5be35c367422f552c6140cc",
+  "contextFiles": [
+    "governor-master-context-v1.2.1.md",
+    "governor-master-context-v1.2.1.json",
+    "governor-compact-context-v1.2.1.md"
+  ]
+}
