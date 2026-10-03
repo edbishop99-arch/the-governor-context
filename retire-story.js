@@ -6,20 +6,18 @@
   }
 
   function isStoryLabel(el) {
-    var t = normalizedText(el);
-    return t.indexOf('READERS') !== -1 && t.indexOf('STORY') !== -1 && t.indexOf('EDITION') !== -1;
+    var text = normalizedText(el);
+    return text.indexOf('READERS') !== -1 && text.indexOf('STORY') !== -1;
   }
 
   function forceVoiceRoute() {
-    var href = String(window.location.href);
-    var hash = String(window.location.hash || '');
-    if (/view=story\b/i.test(href) || /readers(?:-|%20|\s)*story/i.test(hash)) {
-      var next = href.replace(/view=story\b/ig, 'view=voice');
-      if (next === href) {
-        window.location.hash = '#/read?view=voice';
-      } else {
-        window.location.replace(next);
-      }
+    try {
+      localStorage.setItem('governor-reading-mode', 'voice');
+    } catch (_) {}
+
+    var href = String(window.location.href || '');
+    if (/view=(?:readers|story)\b/i.test(href)) {
+      window.location.replace(href.replace(/view=(?:readers|story)\b/ig, 'view=voice'));
       return true;
     }
     return false;
@@ -29,7 +27,13 @@
     if (!root || !root.querySelectorAll) return;
 
     root.querySelectorAll(
-      '.governor-story-download, [data-view="story"], [data-edition="story"], [data-mode="story"], a[href*="view=story"], a[href*="governor_story_download"]'
+      '.toolbar-button--readers,' +
+      '.governor-story-download,' +
+      '[data-view="readers"],[data-view="story"],' +
+      '[data-edition="readers"],[data-edition="story"],' +
+      '[data-mode="readers"],[data-mode="story"],' +
+      'a[href*="view=readers"],a[href*="view=story"],' +
+      'a[href*="governor_story_download"]'
     ).forEach(function (el) {
       el.remove();
     });
@@ -40,12 +44,8 @@
       }
     });
 
-    root.querySelectorAll('p, div, section, aside').forEach(function (el) {
-      if (!isStoryLabel(el)) return;
-      var controls = el.querySelectorAll && el.querySelectorAll('button, a, [role="tab"], [role="button"]');
-      if (controls && controls.length) return;
-      var t = normalizedText(el);
-      if (t.length < 260) {
+    root.querySelectorAll('.draft-notice--reader').forEach(function (el) {
+      if (isStoryLabel(el)) {
         el.remove();
       }
     });
@@ -59,10 +59,13 @@
   document.addEventListener('click', function (event) {
     var target = event.target && event.target.closest ? event.target.closest('button, a, [role="tab"], [role="button"]') : null;
     if (!target) return;
-    if (isStoryLabel(target) || /view=story\b/i.test(String(target.getAttribute('href') || ''))) {
+
+    var href = String(target.getAttribute('href') || '');
+    if (isStoryLabel(target) || /view=(?:readers|story)\b/i.test(href)) {
       event.preventDefault();
       event.stopImmediatePropagation();
       window.location.hash = '#/read?view=voice';
+      try { localStorage.setItem('governor-reading-mode', 'voice'); } catch (_) {}
       setTimeout(run, 0);
     }
   }, true);
